@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lcW-aq-d1P">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mXd-ny-CKd">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
@@ -242,13 +242,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yUl-AE-fcr">
                                 <rect key="frame" x="0.0" y="118" width="393" height="617"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Omd-R6-yo1">
-                                        <rect key="frame" x="10" y="10" width="150" height="200"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </view>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iot-kp-pbZ">
-                                        <rect key="frame" x="121" y="208" width="150" height="200"/>
+                                        <rect key="frame" x="121" y="208" width="151" height="201"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
@@ -291,14 +286,53 @@
             <point key="canvasLocation" x="566" y="111"/>
         </scene>
         <!--View Controller-->
+        <scene sceneID="P62-Mm-m9j">
+            <objects>
+                <viewController id="mXd-ny-CKd" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aOx-O4-GLT">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WyW-Yw-Opu">
+                                <rect key="frame" x="0.0" y="118" width="150" height="200"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="krx-wJ-nMv"/>
+                                    <constraint firstAttribute="height" constant="200" id="sM1-w4-lzO"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zTR-Jx-CiF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="WyW-Yw-Opu" firstAttribute="top" secondItem="zTR-Jx-CiF" secondAttribute="top" id="My3-60-E3X"/>
+                            <constraint firstItem="WyW-Yw-Opu" firstAttribute="leading" secondItem="zTR-Jx-CiF" secondAttribute="leading" id="nNA-oH-NG6"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CZm-bU-8qi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="398" y="828"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="lDE-ID-4dq">
             <objects>
                 <viewController id="TnV-c8-AiA" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wsq-RN-F9h">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dWo-bL-WoE">
+                                <rect key="frame" x="76" y="310" width="240" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="nZr-Yg-WkM"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                        <constraints>
+                            <constraint firstItem="dWo-bL-WoE" firstAttribute="centerY" secondItem="Wsq-RN-F9h" secondAttribute="centerY" constant="-52" id="UzY-5B-y6F"/>
+                            <constraint firstItem="dWo-bL-WoE" firstAttribute="centerX" secondItem="Wsq-RN-F9h" secondAttribute="centerX" id="dML-hc-eHR"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="bookmarks" id="6Oc-Kd-bdu"/>
                 </viewController>
@@ -333,6 +367,12 @@
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
