@@ -21,39 +21,49 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
     }
-
+    
     @IBAction func calculateButton(_ sender: Any) {
-        func calculateDaysLeft() {
-            guard let dateText = dateTextField.text, !dateText.isEmpty else {
-                daysLabel.text = "0"
-                return
-            }
-
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd/MM/yyyy"
-
-            guard let targetDate = formatter.date(from: dateText) else {
-                daysLabel.text = "Invalid"
-                return
-            }
-
-            let today = Date()
-            let calendar = Calendar.current
-
-            let components = calendar.dateComponents([.day], from: today, to: targetDate)
-
-            if let days = components.day {
-                if days < 0 {
-                    daysLabel.text = "Date Passed"
-                    daysRemainingLabel.text = ""
-                } else {
-                    daysLabel.text = "\(days)"
-                    daysRemainingLabel.text = "days remaining"
-                }
-            }
-
+        guard let dateText = dateTextField.text, !dateText.isEmpty else {
+            daysLabel.text = "0"
+            daysRemainingLabel.text = ""
+            return
         }
-        calculateDaysLeft()
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        
+        guard let inputDate = formatter.date(from: dateText) else {
+            daysLabel.text = "Invalid"
+            daysRemainingLabel.text = ""
+            return
+        }
+        
+        let calendar = Calendar.current
+        let today = Date()
+        
+        // Extract day & month from input date
+        let inputComponents = calendar.dateComponents([.day, .month], from: inputDate)
+        
+        // Create date with current year
+        var nextDateComponents = DateComponents()
+        nextDateComponents.day = inputComponents.day
+        nextDateComponents.month = inputComponents.month
+        nextDateComponents.year = calendar.component(.year, from: today)
+        
+        guard var nextDate = calendar.date(from: nextDateComponents) else {
+            daysLabel.text = "Error"
+            return
+        }
+        
+        // If date already passed this year → move to next year
+        if nextDate < today {
+            nextDate = calendar.date(byAdding: .year, value: 1, to: nextDate)!
+        }
+        
+        let days = calendar.dateComponents([.day], from: today, to: nextDate).day ?? 0
+        
+        daysLabel.text = "\(days)"
+        daysRemainingLabel.text = "days remaining"
     }
     
 }
